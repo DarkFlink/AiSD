@@ -1,44 +1,64 @@
 #!/bin/bash
 
 IFS=$'\n'
+result_flag=0
 echo "Enter input file path" 
 read input
-echo "Enter result file path"
-read results
+if [ -n "$1" ]; then
+    case "$1" in
+	-res) echo "Enter result file path" ;;
+    esac
+    shift
+    result_flag=1
+    read results
+    if [ -f $results ]; then
+	echo "[Result file found]";
+    else
+	echo "[ERROR] No such results file which named \"$input\"! Aborting";
+	exit 1
+    fi
+fi
 if [ -f $input ]
 then
-    echo "[Input file founded]";
+    echo "[Input file found]";
 else
     echo "[ERROR] No such input file which named \"$input\"! Aborting!";
     exit 1
 fi
-g++ main.cpp
+g++ ./Source/main.cpp
 
 echo __________________________________
 count=1
+if [ $result_flag -eq $count ]; then
 for value in $(cat $results)
 do
     result_arr[$count]=$value
     let count=$count+1
 done
+fi
 
 curr_count=1
 for value in $(cat $input)
 do
+    if [ $result_flag -eq 1 ]; then
     if [ $curr_count -eq $count ]; then
 	echo "[ERROR] Invalid args number in input file";
-	echo "Shutting down"
+	echo "Shutting down";
 	exit 1;
+    fi
     fi
     echo -n "Test#$curr_count: "
     curr=$(./a.out <<< $value)
     answer=${result_arr[$curr_count]}
     echo -n "$curr  "
-    if [ $curr -eq $answer ]
-    then
+    if [ $result_flag -eq 1 ]; then
+    if [ $curr -eq $answer ]; then
 	echo [correctly]
     else
 	echo "[incorrectly (answer = $answer)]"
+    fi
+    else
+        echo " "
     fi
     let curr_count=$curr_count+1
 done
