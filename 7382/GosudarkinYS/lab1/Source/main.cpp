@@ -22,8 +22,8 @@ int function(int val) {
 int main() {
     int input;
     cin >> input;
-    if(input < 0) {
-        cerr << ("[ERROR] Unvalid input (negative value exception)") << endl;
+    if(input <= 0) {
+        cerr << ("[ERROR] Unvalid input (negative/zero value exception)") << endl;
         return 0;
     }
 //    cout << "For " << input << ": " << function(input) << " [Success]" << endl;
