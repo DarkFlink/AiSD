@@ -1,0 +1,1 @@
+g++ Source/main.cpp && ./a.out < Test/test2.txt
