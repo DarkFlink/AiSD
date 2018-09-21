@@ -6,7 +6,6 @@
 using namespace std;
 
 bool Brackets(string &str);
-bool Equal(string &str1, string &str2);
 void BracketRework(string &str);
 
 int main() {
@@ -26,7 +25,7 @@ int main() {
     cout << "Bracket structure [str1]:  " << str1 << endl;
     cout << "Bracket structure [str2]:  " << str2 << endl;
 
-    if(!Equal(str1, str2))
+    if(str1 != str2)
         cerr << "Strings !Equal" << endl;
     else
         cout << "String 1 && 2 are structure identical" << endl;
@@ -66,11 +65,4 @@ void BracketRework(string &str) {
         }
         i++;
     }
-}
-
-bool Equal(string &str1, string &str2) {
-    if(str1 == str2)
-        return true;
-    else
-        return false;
 }
