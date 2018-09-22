@@ -11,12 +11,17 @@ void BracketRework(string &str);
 int main() {
     string str1;
     string str2;
+    cout << "Enter 1-st string" << endl;
     cin >> str1;
+    cout << "Enter 2-nd string" << endl;
     cin >> str2;
 
-    if(!Brackets(str1) || !Brackets(str2)) {
-        cerr << "[ERROR] One of strings isn't brackets. Aborting!" << endl;
+    if(!Brackets(str1)) {
+        cerr << "[ERROR] 1-st string isn't hierarchial list. Aborting!" << endl;
         exit(1);
+    } else if(!Brackets(str2)) {
+        cerr << "[ERROR] 2-nd string isn't hierarchial list. Aborting!" << endl;
+        exit(1);      
     }
 
     BracketRework(str1);
