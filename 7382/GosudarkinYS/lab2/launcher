@@ -3,7 +3,6 @@
 count=1
 g++ Source/main.cpp
 
-declare -a array
 for((; count<16; count++))
 do
     input="Test/test$count.txt"
@@ -19,5 +18,3 @@ do
     echo ______________________________
 done
 echo "All values calculated"
-
-
