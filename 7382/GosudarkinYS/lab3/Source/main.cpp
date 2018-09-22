@@ -144,12 +144,12 @@ void reworkAlgorithm(ul &l, ul &r, listQueue<ul> &mQueueLow, listQueue<ul> &mQue
     if(!mFile)
         error_Handler(2);
 
-    for(ul j=0; getline(mFile, str, '\n'); j++) {
+    for(ul j=0; getline(mFile, str, '\n'); j++) {  //  string by string input
         bool valFlag = true;
         if (!str.size())
             valFlag = false;
 
-        for(ul it=0; it < str.size(); it++) {
+        for(ul it=0; it < str.size(); it++) {  // checking string on symbols
             if(!isdigit(str[it]) && str[it] != '\n') {
                 valFlag = false;
                 break;
@@ -158,7 +158,7 @@ void reworkAlgorithm(ul &l, ul &r, listQueue<ul> &mQueueLow, listQueue<ul> &mQue
             }
         }
 
-        if(valFlag) {
+        if(valFlag) {   //  If string - value -> put to one of queues
             ul value = stoul(str);
             if(errno == ERANGE)
                 error_Handler(1);
