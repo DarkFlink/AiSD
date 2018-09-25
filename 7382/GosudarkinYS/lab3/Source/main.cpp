@@ -21,11 +21,17 @@ int main()
     reworkAlgorithm(leftBorder, rightBorder, mQueueLow, mQueueMid, mQueueHigh);
 
     cout << "____________________________________________________\n\n";
-    cout << "VALUES <" << leftBorder << ":   ";                      mQueueLow.clear();
+    cout << "VALUES <" << leftBorder << ":   ";                      
+    mQueueLow.clear();
+    
     cout << "____________________________________________________\n\n";
-    cout << "VALUES [" << leftBorder << "," << rightBorder << "] :"; mQueueMid.clear();
+    cout << "VALUES [" << leftBorder << "," << rightBorder << "] :"; 
+    mQueueMid.clear();
+    
     cout << "____________________________________________________\n\n";
-    cout << "VALUES >" << rightBorder << " :   ";                    mQueueHigh.clear();
+    cout << "VALUES >" << rightBorder << " :   ";                    
+    mQueueHigh.clear();
     cout << "____________________________________________________\n\n";
+    
     return 0;
 }
