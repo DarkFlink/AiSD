@@ -41,19 +41,19 @@ void reworkAlgorithm(ul l, ul r, listQueue<ul> &mQueueLow, listQueue<ul> &mQueue
     cout << "Enter test filepath:" << endl;
     cin >> filePath;
 
-    //_______Open_FileStream_______//
+    // Open fileStream
     ifstream mFile;
     mFile.open(filePath, std::ifstream::binary);
     if(!mFile)
         error_Handler(2);
 
-    //_______Reading_fileStream______//
+    // Reading fileStream
     ul value;
     bool isEOF = false;
     do {
         isEOF = getValue(mFile, value);
 
-        //______Sorting_values_between_queues______//
+        // Sorting_values_between_queues
         if(value < l)
             mQueueLow += value;
         if(value >= l && value <= r)
