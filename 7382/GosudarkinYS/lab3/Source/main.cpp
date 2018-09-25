@@ -18,12 +18,14 @@ int main()
     if(leftBorder > rightBorder || leftBorder == rightBorder)
         error_Handler(3);
 
-    cout << "____________________________________________________" << endl << endl;
     reworkAlgorithm(leftBorder, rightBorder, mQueueLow, mQueueMid, mQueueHigh);
-    cout << "____________________________________________________" << endl << endl;
 
-    cout << "Values <left :            "; mQueueLow.clear();
-    cout << "Values from [left,right] :"; mQueueMid.clear();
-    cout << "Values >right :           "; mQueueHigh.clear();
+    cout << "____________________________________________________\n\n";
+    cout << "VALUES <" << leftBorder << ":   ";                      mQueueLow.clear();
+    cout << "____________________________________________________\n\n";
+    cout << "VALUES [" << leftBorder << "," << rightBorder << "] :"; mQueueMid.clear();
+    cout << "____________________________________________________\n\n";
+    cout << "VALUES >" << rightBorder << " :   ";                    mQueueHigh.clear();
+    cout << "____________________________________________________\n\n";
     return 0;
 }
