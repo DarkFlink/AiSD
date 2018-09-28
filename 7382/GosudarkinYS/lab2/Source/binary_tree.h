@@ -23,34 +23,32 @@ public:
     tree_element* p_mLeftChild;
     tree_element* p_mRightChild;
     TYPE mData;
-    ul mDescriptor;
+    ul mDescriptor;               // unsigned long id of element
 };
 
 template<class TYPE>
 class binary_tree {
 public:
     binary_tree();
-    binary_tree(std::string &str);
+    binary_tree(std::string &str);       		      // constructs binary tree from S-expression
     ~binary_tree();
 
-    static bool is_s_expression(std::string &str);
+    static bool is_s_expression(std::string &str);            // returns true if str - S-expression
 
-    void push(TYPE &data, ul descriptor, bool right = true);
-    void pop_last();
-    void to_structure_exp(std::string &str);
+    void push(TYPE &data, ul descriptor, bool right = true);  // push element by descriptor of parent and flag left/right
+    void pop_last();			                      // pop element with biggest descriptor
+    void to_structure_exp(std::string &str);		      // transform tree to s_expression
 
     size_t size();
 
 private:
-    tree_element<TYPE>* find_tree_element(ul descriptor, tree_element<TYPE>* ptr);
-    tree_element<TYPE>* find_tree_element_parent(ul descriptor, tree_element<TYPE>* ptr);
+    tree_element<TYPE>* find_tree_element(ul descriptor, tree_element<TYPE>* ptr);         // return ptr of element by descriptor
+    tree_element<TYPE>* find_tree_element_parent(ul descriptor, tree_element<TYPE>* ptr);  // return element's parent ptr by descriptor of element
     void to_structure_exp_rec(std::string &str, tree_element<TYPE>* ptr);
     void error_handler(ul error_code);
 
     tree_element<TYPE>* p_mRoot;
-    tree_element<TYPE>* p_mIterator;
     size_t mSize;
-    bool log;
 };
 
 //__________METHODS_DEFINITION__________//
@@ -76,7 +74,7 @@ void binary_tree<TYPE>::error_handler(ul error_code) {
 }
 
 template<class TYPE>
-bool binary_tree<TYPE>::is_s_expression(std::string &str) {
+bool binary_tree<TYPE>::is_s_expression(std::string &str) {  
     if(isalpha(str[0]) && str.size()==1)
         return true;
     if(str[0] != '(')
