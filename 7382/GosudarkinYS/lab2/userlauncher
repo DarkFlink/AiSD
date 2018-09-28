@@ -1,1 +1,1 @@
-g++ Source/main.cpp && ./a.out < Test/test2.txt
+g++ -std=c++11 Source/main.cpp && ./a.out

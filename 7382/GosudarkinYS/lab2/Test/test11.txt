@@ -1,2 +1,2 @@
 (luche_net(scobochki)___chem(ochko)(vovochki))
-(ya_ne_znau(pochemu)[][]no_pojdu(ka)(ya)buhnu)
+(ya_ne_znau(pochemu)no_pojdu(ka)(ya)buhnu)

@@ -1,20 +1,23 @@
 #!/bin/bash
 
 count=1
-g++ Source/main.cpp
+g++ -std=c++11 Source/main.cpp
 
+declare -a array
 for((; count<16; count++))
 do
     input="Test/test$count.txt"
     if [ -f $input ]
     then
-        echo "[LOG] Input file found";
+        echo -e "";
     else
         echo "No such input file which named \"$input\"! Aborting!";
 	exit 1
     fi
     echo "[Test#$count]: "
     ./a.out < $input
-    echo ______________________________
 done
 echo "All values calculated"
+rm ./a.out
+
+
