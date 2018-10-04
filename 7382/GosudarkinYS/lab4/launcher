@@ -1,0 +1,23 @@
+#!/bin/bash
+
+count=1
+g++ -std=c++11 Source/inputter.cpp Source/main.cpp
+
+for((; count<8; count++))
+do
+    input="Test/test$count.txt"
+    if [ -f $input ]
+    then
+        echo -e "";
+    else
+        echo "No such input file which named \"$input\"! Aborting!";
+	exit 1
+    fi
+    echo "[Test#$count]: "
+    ./a.out < $input
+    echo "__________________________________________";
+done
+echo "All values calculated"
+rm ./a.out
+
+
