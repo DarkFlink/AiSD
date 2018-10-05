@@ -1,7 +1,7 @@
 #!/bin/bash
 
 count=1
-g++ -std=c++11 Source/main.cpp
+g++ -std=c++11 Source/hier_list.cpp Source/main.cpp
 
 declare -a array
 for((; count<16; count++))
