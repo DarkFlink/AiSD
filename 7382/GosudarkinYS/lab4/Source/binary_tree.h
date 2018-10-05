@@ -5,39 +5,7 @@
 #include <cstring>
 #include "inputter.h"
 
-#define NO_ELEMENT -1
 #define MEMORY_ADD_BLOCK 50
-
-enum merrno_t {UNEXCITED_PARENT = 1, REPLACE_DATA, ARRAY_INDEX_OUTRANGE};
-enum side_t {NO_SIDE, RIGHT, LEFT};
-enum operation_t {NO_OPERATION, OVERLOADED_INIT, INSERT};
-
-class last_actionlog {
-public:
-    last_actionlog() {
-        _operation = NO_OPERATION;
-        _index = NO_ELEMENT;
-        _side = NO_SIDE;
-    }
-    last_actionlog(operation_t operation, long parent, side_t side) {
-        _operation = operation;
-        _index = parent;
-        _side = side;
-    }
-    void p_err_log() {
-        if(_operation == INSERT) {
-            std::cerr << "{ ACTION: INSERT; SIDE: " << _side;
-            std::cerr << "; PARENT_ID: " << _index << " }\n";
-        } else if(_operation == OVERLOADED_INIT) {
-            std::cerr << "{ ACTION: OVERLOADED_INIT";
-            std::cerr << "; INDEX: " << _index << " }\n";
-        }
-    }
-
-    long _index;
-    operation_t _operation;
-    side_t _side;
-};
 
 template<class TYPE>
 class binary_tree {
@@ -50,7 +18,6 @@ public:
     void extend_tree_capacity();
 
     size_t count();
-    size_t capacity();
 
     long find(const TYPE &data);
     long find_closest(const TYPE &data);
@@ -161,11 +128,6 @@ void binary_tree<TYPE>::extend_tree_capacity() {
     extend_size<long> (&mRight);
     extend_size<TYPE> (&mData);
     _capacity += MEMORY_ADD_BLOCK;
-}
-
-template<class TYPE>
-size_t binary_tree<TYPE>::capacity() {
-    return _capacity;
 }
 
 template<class TYPE>

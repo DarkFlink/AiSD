@@ -1,5 +1,29 @@
 #include "inputter.h"
 
+last_actionlog::last_actionlog() 
+{
+    _operation = NO_OPERATION;
+    _index = NO_ELEMENT;
+    _side = NO_SIDE;
+}
+    
+last_actionlog::last_actionlog(operation_t operation, long parent, side_t side) 
+{
+    _operation = operation;
+    _index = parent;
+    _side = side;
+}
+void last_actionlog::p_err_log() 
+{
+    if(_operation == INSERT) {
+    	std::cerr << "{ ACTION: INSERT; SIDE: " << _side;
+    	std::cerr << "; PARENT_ID: " << _index << " }\n";
+    } else if(_operation == OVERLOADED_INIT) {
+    	std::cerr << "{ ACTION: OVERLOADED_INIT";
+    	std::cerr << "; INDEX: " << _index << " }\n";
+    }
+}
+
 bool is_s_expression(std::string &str) {
     if(isalpha(str[0]) && str.size()==1)
         return true;
