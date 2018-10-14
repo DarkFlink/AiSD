@@ -1,0 +1,207 @@
+
+[Test#1]: 
+Input searching element: 78
+Input level of needed deep: 3
+Input keys: 9, 4, 12, 52, 351, 1, 2, 78, 6, 0
+TREAP_STATUS: 
+{
+    SIZE:    9
+    HEIGHT:  5
+    CHART: 
+	root:   (351,194)
+		left:	(2,187)
+			left:	(1,136)
+			right:	(9,184)
+				left:	(4,87)
+					right:	(6,50)
+				right:	(12,178)
+					right:	(52,116)
+						right:	(78,93)
+
+}
+
+a) Find [78] key: 5
+b) Count of elements on [3] level: 2
+
+Splitting by search_key (78)...
+TREAP_STATUS: 
+{
+    SIZE:    8
+    HEIGHT:  4
+    CHART: 
+	root:   (2,187)
+		left:	(1,136)
+		right:	(9,184)
+			left:	(4,87)
+				right:	(6,50)
+			right:	(12,178)
+				right:	(52,116)
+					right:	(78,93)
+
+}
+TREAP_STATUS: 
+{
+    SIZE:    1
+    HEIGHT:  0
+    CHART: 
+	root:   (351,194)
+
+}
+__________________________________________
+
+[Test#2]: 
+Input searching element: 2
+Input level of needed deep: 6
+Input keys: 0
+TREAP_STATUS: 
+{
+    SIZE:    0
+    HEIGHT:  0
+    CHART: Empty Treap
+}
+
+a) Find [2] key: -1
+b) Count of elements on [6] level: 0
+
+Splitting by search_key (2)...
+WARNING: {
+   OPERATION: Split(ul _key, Treap* _tr1, Treap* _tr2)
+   ARGS:     2, 0x2397c60, 0x2397c80
+   ERR_DEF:   Impossible using split operation on empty Treap.
+}
+TREAP_STATUS: 
+{
+    SIZE:    0
+    HEIGHT:  0
+    CHART: Empty Treap
+}
+TREAP_STATUS: 
+{
+    SIZE:    0
+    HEIGHT:  0
+    CHART: Empty Treap
+}
+__________________________________________
+
+[Test#3]: 
+Input searching element: 7
+Input level of needed deep: 3
+Input keys: Input error. Aborting!
+__________________________________________
+
+[Test#4]: 
+Input searching element: 14
+Input level of needed deep: 3
+Input keys: 7, 4, 5, 5, WARNING: {
+   OPERATION: Add(const ul _key, const ul _priority)
+   ARGS:     5, 116
+   ERR_DEF:   Node with that _key is already existed in Treap.
+}
+15, 5, WARNING: {
+   OPERATION: Add(const ul _key, const ul _priority)
+   ARGS:     5, 136
+   ERR_DEF:   Node with that _key is already existed in Treap.
+}
+3, 12, 22, 19, 29, 2, 0
+TREAP_STATUS: 
+{
+    SIZE:    10
+    HEIGHT:  4
+    CHART: 
+	root:   (15,194)
+		left:	(3,187)
+			left:	(2,28)
+			right:	(7,184)
+				left:	(5,178)
+					left:	(4,87)
+				right:	(12,93)
+		right:	(29,163)
+			left:	(22,50)
+				left:	(19,22)
+
+}
+
+a) Find [14] key: -1
+b) Count of elements on [3] level: 3
+
+Splitting by search_key (14)...
+TREAP_STATUS: 
+{
+    SIZE:    6
+    HEIGHT:  3
+    CHART: 
+	root:   (3,187)
+		left:	(2,28)
+		right:	(7,184)
+			left:	(5,178)
+				left:	(4,87)
+			right:	(12,93)
+
+}
+TREAP_STATUS: 
+{
+    SIZE:    4
+    HEIGHT:  3
+    CHART: 
+	root:   (15,194)
+		right:	(29,163)
+			left:	(22,50)
+				left:	(19,22)
+
+}
+__________________________________________
+
+[Test#5]: 
+Input searching element: 56
+Input level of needed deep: 33123
+Input keys: 7, 4, 5, 33, 76, 5, WARNING: {
+   OPERATION: Add(const ul _key, const ul _priority)
+   ARGS:     5, 136
+   ERR_DEF:   Node with that _key is already existed in Treap.
+}
+86, 12, 22, 56, 94, 15, 0
+TREAP_STATUS: 
+{
+    SIZE:    11
+    HEIGHT:  5
+    CHART: 
+	root:   (76,194)
+		left:	(7,184)
+			left:	(5,178)
+				left:	(4,87)
+			right:	(33,116)
+				left:	(12,93)
+					right:	(22,50)
+						left:	(15,28)
+				right:	(56,22)
+		right:	(86,187)
+			right:	(94,163)
+
+}
+
+a) Find [56] key: 3
+ERROR: THROWED_EXCEPTION: 
+{
+    OPERATION: LevelLength(size_t _level)
+    ARGUMENT_VALUES: 33123
+    ERR_DEF: Input _level larger than Height of Treap.
+}
+TREAP_STATUS: 
+{
+    SIZE:    11
+    HEIGHT:  5
+    CHART: 
+	root:   (76,194)
+		left:	(7,184)
+			left:	(5,178)
+				left:	(4,87)
+			right:	(33,116)
+				left:	(12,93)
+					right:	(22,50)
+						left:	(15,28)
+				right:	(56,22)
+		right:	(86,187)
+			right:	(94,163)
+
+}
+__________________________________________
